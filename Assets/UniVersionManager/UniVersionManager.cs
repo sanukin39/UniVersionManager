@@ -20,10 +20,8 @@ public static class UniVersionManager
 #elif UNITY_IOS
         return GetVersionName_();
 #elif UNITY_ANDROID
-        AndroidJavaClass    unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-        AndroidJavaObject ajo = new AndroidJavaObject("jp.ne.donuts.universionmanager.UniVersionManager");
-        AndroidJavaObject context = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity").Call<AndroidJavaObject>("getApplicationContext");
-        return ajo.CallStatic<string>("getVersionName", context);
+        AndroidJavaObject ajo = new AndroidJavaObject("net.sanukin.UniVersionManager");
+        return ajo.CallStatic<string>("GetVersionName");
 #else
         return "0";
 #endif
@@ -35,10 +33,8 @@ public static class UniVersionManager
 #elif UNITY_IOS
         return GetBuildVersionName_();
 #elif UNITY_ANDROID
-        AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
-        AndroidJavaObject ajo = new AndroidJavaObject("jp.ne.donuts.universionmanager.UniVersionManager");
-        AndroidJavaObject context = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity").Call<AndroidJavaObject>("getApplicationContext");
-        return ajo.CallStatic<int>("getVersionCode", context).ToString ();
+        AndroidJavaObject ajo = new AndroidJavaObject("net.sanukin.UniVersionManager");
+        return ajo.CallStatic<int>("GetVersionCode").ToString ();
 #else
         return "0";
 #endif

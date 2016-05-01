@@ -20,4 +20,5 @@ extern "C"
     {
         NSString *buildNo = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
         return MakeStringCopy( [buildNo UTF8String] );
-    }}
+    }
+}
