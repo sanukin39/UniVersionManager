@@ -8,10 +8,12 @@ using UnityEditor;
 public static class UniVersionManager
 {
 
+#if UNITY_IOS
     [DllImport("__Internal")]
     private static extern string GetVersionName_();
     [DllImport("__Internal")]
     private static extern string GetBuildVersionName_ ();
+#endif
 
     public static string GetVersion ()
     {
